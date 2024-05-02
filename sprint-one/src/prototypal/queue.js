@@ -1,8 +1,45 @@
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  var instanceQueue = Object.create(queueMethods);
+  instanceQueue.storage = {};
+  return instanceQueue;
 };
 
-var queueMethods = {};
+var queueMethods = {
+  enqueue: function(value) {
+    var currentSize = 0;
+    for (var key in this.storage) {
+      currentSize++;
+    }
+    var highestKey = currentSize;
+    for (var key in this.storage) {
+      if (parseInt(key) > highestKey) {
+        highestKey = parseInt(key);
+      }
+    }
+    this.storage[highestKey + 1] = value;
+  },
+  dequeue: function() {
+    var currentSize = 0;
+    for (var key in this.storage) {
+      currentSize++;
+    }
+    var lowestKey = currentSize;
+    for (var key in this.storage) {
+      if (parseInt(key) < lowestKey) {
+        lowestKey = parseInt(key);
+      }
+    }
+    var itemToBeRemoved = this.storage[lowestKey];
+    delete this.storage[lowestKey];
+    return itemToBeRemoved;
+  },
+  size: function() {
+    var currentSize = 0;
+    for (var key in this.storage) {
+      currentSize++;
+    }
+    return currentSize;
+  }
+};
 
 
