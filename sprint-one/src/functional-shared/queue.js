@@ -1,9 +1,7 @@
 var Queue = function() {
   var instanceQueue = {};
   instanceQueue.storage = {};
-  for (var key in queueMethods) {
-    instanceQueue[key] = queueMethods[key];
-  }
+  _.extend(instanceQueue, queueMethods);
   return instanceQueue;
 };
 
