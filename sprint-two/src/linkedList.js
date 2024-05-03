@@ -26,13 +26,13 @@ var LinkedList = function() {
     var searchResult = false;
     var search = function(target, obj) {
       if (obj.value === target) {
-        return true;
+        searchResult = true;
       } else if (obj.next !== null) {
-        searchResult = search(target, obj.next);
+        search(target, obj.next);
       }
-      return searchResult;
     };
-    return search(target, list.head);
+    search(target, list.head);
+    return searchResult;
   };
   return list;
 };
