@@ -72,6 +72,20 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+addNode - O(1); constant time complexity
+
+contains - O(n); linear time complexity
+
+removeNode - only removing node would be O(n) but since we need to remove all corresponding edges - it is O( n cubed) - exponential time complexity
+
+hasEdge - O(n sqaured) - quadratic time complexity
+
+addEdge - O(1) - constant time complexity
+
+removeEdge - O(n squared) - quadratic time complexity
+
+forEachNode - O(n) plus whatever is time complexity of the function that is called back
+
  */
 
 
