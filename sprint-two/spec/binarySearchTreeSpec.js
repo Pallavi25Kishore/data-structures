@@ -37,4 +37,17 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  //adding additional unit test
+  it('should return depth of location of a value contained in the tree', function() {
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(6);
+    expect(binarySearchTree.depthOfNode(5)).to.equal(0);
+    expect(binarySearchTree.depthOfNode(3)).to.equal(1);
+    expect(binarySearchTree.depthOfNode(7)).to.equal(1);
+    expect(binarySearchTree.depthOfNode(2)).to.equal(2);
+    expect(binarySearchTree.depthOfNode(6)).to.equal(2);
+  });
 });
