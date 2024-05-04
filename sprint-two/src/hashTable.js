@@ -28,7 +28,12 @@ HashTable.prototype.retrieve = function(k) {
     return undefined;
   }
   if (retrievedArrayOfArray.length === 1) { //when only single value present
-    return retrievedArrayOfArray[0][1];
+    if (retrievedArrayOfArray[0][0] === k) {
+      return retrievedArrayOfArray[0][1];
+    } else if ((retrievedArrayOfArray[0][0] !== k)) {
+      return undefined; /*to pass additional unit test - if there were two values in same
+      index and one of them is deleted, the function should be able to retrieve the one which is not deleted*/
+    }
   } else {
     for (var i = 0; i < retrievedArrayOfArray.length; i++) {
       if (retrievedArrayOfArray[i][0] === k) { //multiple vals at same index
@@ -58,7 +63,7 @@ HashTable.prototype.remove = function(k) {
 };
 
 
-// Note: Have refactored the code to use arrays [k,v] as "values" to handle collision scenarios, but as instructed in glearn, have not used arrays to directly interact with the limited array instance - the array brackets in code are to interact with get, set or each methods.
+/*Note: Have refactored the code to use arrays [k,v] as "values" to handle collision scenarios, but as instructed in glearn, have not used arrays to directly interact with the limited array instance - the array brackets in code are to interact with get, set or each methods.*/
 
 /*
  * Complexity: What is the time complexity of the above functions?
