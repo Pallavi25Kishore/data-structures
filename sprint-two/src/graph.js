@@ -70,6 +70,16 @@ Graph.prototype.forEachNode = function(cb) {
   }
 };
 
+//writing additional function to pass additional unit test
+Graph.prototype.hasIslandNode = function() {
+  for (var key in this) {
+    if (this[key].length === 0) {
+      return true;
+    }
+  }
+  return false;
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
 addNode - O(1); constant time complexity
@@ -85,6 +95,8 @@ addEdge - O(1) - constant time complexity
 removeEdge - O(n squared) - quadratic time complexity
 
 forEachNode - O(n) plus whatever is time complexity of the function that is called back
+
+hasIslandNode (additionally added function) - O(n);
 
  */
 
