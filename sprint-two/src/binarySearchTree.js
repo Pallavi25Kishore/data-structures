@@ -60,4 +60,7 @@ binarytreeMethods.depthFirstLog = function(callbackfunc) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+insert - O(logn) logarithmic time complexity
+contains- O(logn) logarithmic time complexity
+depthFirstLog - O(n) linear time complexity
  */
