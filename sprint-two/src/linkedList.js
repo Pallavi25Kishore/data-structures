@@ -34,6 +34,15 @@ var LinkedList = function() {
     search(target, list.head);
     return searchResult;
   };
+
+  // adding more functionality to pass additionally added test
+  list.addToHead = function(value) {
+    var prevHead = list.head;
+    var newHead = Node(value);
+    list.head = newHead;
+    newHead.next = prevHead;
+  };
+
   return list;
 };
 
@@ -46,9 +55,12 @@ var Node = function(value) {
   return node;
 };
 
+
+
 /*
  * Complexity: What is the time complexity of the above functions?
 addToTail - O(1); constant time complexity
 removeHead - O(1); constant time complexity
 contains - O(n); linear time complexity
+additional function to expand functionality - addToHead - O(1)
  */
