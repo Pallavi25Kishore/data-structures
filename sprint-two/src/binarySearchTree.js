@@ -36,7 +36,7 @@ binarytreeMethods.contains = function(value) {
       return;
     } else if (value > obj.value && obj.right !== null) {
       searchNodes(obj.right, value);
-    } else if (value < obj.value && obj.right !== null) {
+    } else if (value < obj.value && obj.left !== null) {
       searchNodes(obj.left, value);
     }
   };
@@ -55,6 +55,25 @@ binarytreeMethods.depthFirstLog = function(callbackfunc) {
     }
   };
   nodeTraverse(this);
+};
+
+//additional function added to pass additional unit test
+binarytreeMethods.depthOfNode = function(value) {
+  var depth = 0;
+  var searchNodes = function(obj, value) {
+    depth++;
+    if (obj.value === value) {
+      return;
+    } else if (value > obj.value && obj.right !== null) {
+      searchNodes(obj.right, value);
+    } else if (value < obj.value && obj.left !== null) {
+      searchNodes(obj.left, value);
+    }
+  };
+  searchNodes(this, value);
+  depth = depth - 1; // assuming depth of root element/value is 0
+  return depth;
+
 };
 
 
