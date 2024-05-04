@@ -24,4 +24,11 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  //adding additional unit test
+  it('should have only one count for repeated values that are added', function() {
+    set.add('Susan Sarandon');
+    set.add('Susan Sarandon');
+    expect(set.countValues('Susan Sarandon')).to.equal(1);
+  });
+
 });
