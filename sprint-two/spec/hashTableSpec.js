@@ -47,6 +47,30 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  //adding additional unit test
+  it('should remove only the specific key/value being removed in case multiple values are present at the same index', function() {
+    var v1 = 'val1';
+    var v2 = 'val2';
+    var oldHashFunction = window.getIndexBelowMaxForKey;
+    window.getIndexBelowMaxForKey = function() { return 0; };
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v2);
+    hashTable.remove(v2);
+    expect(hashTable.retrieve(v2)).to.equal(undefined);
+    expect(hashTable.retrieve(v1)).to.equal(v1);
+    window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
+
+
+
+
+
+
+
+
+
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {
@@ -73,4 +97,5 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
 });
