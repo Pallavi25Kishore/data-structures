@@ -68,4 +68,14 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  // adding additional unit test
+  it('should identify whether there are any standalone/island nodes', function() {
+    graph.addNode(2);
+    graph.addNode(1);
+    graph.addNode(3);
+    graph.addEdge(3, 2);
+    expect(graph.hasIslandNode()).to.equal(true);
+  });
+
 });
